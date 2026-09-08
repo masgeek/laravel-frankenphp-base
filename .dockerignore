@@ -1,0 +1,10 @@
+.git
+.github
+*.md
+Dockerfile*
+.env*
+vendor
+node_modules
+storage
+public/build
+frankenphp-worker.php

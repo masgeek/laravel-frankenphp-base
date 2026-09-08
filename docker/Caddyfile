@@ -1,0 +1,36 @@
+{
+	admin off
+	auto_https off
+	frankenphp {
+		worker {
+			file "{$APP_PUBLIC_PATH}/frankenphp-worker.php"
+		}
+	}
+}
+
+:80 {
+	log {
+		format filter {
+			wrap json
+			fields {
+				uri query {
+					replace authorization REDACTED
+					replace api_key REDACTED
+				}
+			}
+		}
+	}
+
+	route {
+		root * "{$APP_PUBLIC_PATH}"
+		encode zstd br gzip
+
+		header {
+			X-Frame-Options "SAMEORIGIN"
+			X-Content-Type-Options "nosniff"
+			-Server
+		}
+
+		php_server
+	}
+}
