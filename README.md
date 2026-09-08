@@ -40,3 +40,10 @@ ghcr.io/masgeek/laravel-frankenphp-base:php8.4
 ```
 
 Applications should consume the PHP-version tag or, preferably, pin its digest.
+
+## Releases
+
+Successful builds on `main` run the automatic versioning workflow. It creates
+the next numeric semantic tag and a GitHub release, then publishes the image
+using the PHP-version tag. The release number identifies the source release;
+the container tag identifies the PHP runtime, for example `php8.4`.

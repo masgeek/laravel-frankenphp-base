@@ -1,9 +1,13 @@
 name: Publish Base Image
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+  workflow_call:
+    inputs:
+      php_version:
+        description: 'PHP version used to build the image'
+        required: false
+        default: '8.4'
+        type: string
   workflow_dispatch:
     inputs:
       php_version:
