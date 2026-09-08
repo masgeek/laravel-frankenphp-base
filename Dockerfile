@@ -12,7 +12,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
     HORIZON_ENABLED=false \
     SCHEDULER_ENABLED=false \
     LARAVEL_MIGRATE=false \
-    LARAVEL_OPTIMIZE=true \
+    LARAVEL_OPTIMIZE=false \
     LARAVEL_STORAGE_LINK=true
 
 RUN apk add --no-cache \

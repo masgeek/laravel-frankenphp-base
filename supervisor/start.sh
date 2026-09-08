@@ -37,7 +37,7 @@ for script in /etc/laravel/startup.d/*; do
     bash "${script}"
 done
 
-if enabled "${LARAVEL_OPTIMIZE:-true}"; then
+if enabled "${LARAVEL_OPTIMIZE:-false}"; then
     artisan optimize
 fi
 
