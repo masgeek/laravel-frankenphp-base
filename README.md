@@ -9,7 +9,7 @@ Supervisor, Horizon, and the Laravel scheduler.
 docker build \
   --build-arg PHP_VERSION=8.4 \
   --build-arg APP_BASE_PATH=/var/www/html/app \
-  -t ghcr.io/masgeek/laravel-frankenphp-base:php8.4-v1 .
+  -t ghcr.io/masgeek/laravel-frankenphp-base:php8.4 .
 ```
 
 The image provides the PHP runtime, extensions, Composer, FrankenPHP, Caddy,
@@ -33,11 +33,10 @@ web container startup.
 
 ## Release Policy
 
-Publish immutable version tags such as:
+Publish PHP-version tags such as:
 
 ```text
-ghcr.io/masgeek/laravel-frankenphp-base:php8.4-v1.0.0
+ghcr.io/masgeek/laravel-frankenphp-base:php8.4
 ```
 
-Applications should consume an explicit version tag or digest rather than
-`latest`.
+Applications should consume the PHP-version tag or, preferably, pin its digest.
