@@ -25,7 +25,7 @@ Composer dependencies are supplied by the consuming Laravel application image.
 | `HORIZON_ENABLED` | `false` | Enable the Horizon Supervisor program |
 | `SCHEDULER_ENABLED` | `false` | Enable the scheduler Supervisor program |
 | `LARAVEL_MIGRATE` | `false` | Run migrations during startup |
-| `LARAVEL_OPTIMIZE` | `true` | Run `artisan optimize` during startup |
+| `LARAVEL_OPTIMIZE` | `false` | Run `artisan optimize` during startup |
 | `LARAVEL_STORAGE_LINK` | `true` | Run `artisan storage:link` during startup |
 
 Migrations should normally run as a separate deployment step, not from every
