@@ -4,11 +4,23 @@
 	frankenphp {
 		worker {
 			file "{$APP_PUBLIC_PATH}/frankenphp-worker.php"
+			num {$FRANKENPHP_NUM_WORKERS:4}
 		}
 	}
 
 	log {
 		level {$CADDY_LOG_LEVEL:INFO}
+	}
+
+	servers {
+		max_header_bytes 16384
+		trusted_proxies static private_ranges
+		timeouts {
+			read_body   30s
+			read_header 10s
+			write       30s
+			idle        2m
+		}
 	}
 }
 
@@ -18,10 +30,25 @@
 		root * "{$APP_PUBLIC_PATH}"
 		encode zstd br gzip
 
+		handle /healthz {
+			respond "OK" 200
+		}
+
+		@static {
+			path *.css *.js *.png *.jpg *.jpeg *.svg *.woff *.woff2 *.ico
+		}
+		header @static Cache-Control "public, max-age=31536000, immutable"
+
 		header {
 			X-Frame-Options "SAMEORIGIN"
 			X-Content-Type-Options "nosniff"
+			Referrer-Policy "strict-origin-when-cross-origin"
+			Permissions-Policy "geolocation=(), microphone=(), camera=()"
 			-Server
+		}
+
+		request_body {
+			max_size 20MB
 		}
 
 		php_server
