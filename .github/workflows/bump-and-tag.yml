@@ -23,7 +23,7 @@ jobs:
     outputs:
       new_tag: ${{ steps.tag_version.outputs.new_tag }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Generate Tag
         id: tag_version
         uses: masgeek/github-tag-action@release
