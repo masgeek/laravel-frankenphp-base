@@ -6,6 +6,10 @@
 			file "{$APP_PUBLIC_PATH}/frankenphp-worker.php"
 		}
 	}
+
+	log {
+		level {$CADDY_LOG_LEVEL:INFO}
+	}
 }
 
 :80 {
