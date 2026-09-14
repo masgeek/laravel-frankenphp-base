@@ -13,7 +13,7 @@
 	}
 
 	servers {
-		max_header_bytes 16384
+		max_header_size 16384
 		trusted_proxies static private_ranges
 		timeouts {
 			read_body   30s
