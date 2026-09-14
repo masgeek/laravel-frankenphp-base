@@ -13,7 +13,8 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
     SCHEDULER_ENABLED=false \
     LARAVEL_MIGRATE=false \
     LARAVEL_OPTIMIZE=false \
-    LARAVEL_STORAGE_LINK=true
+    LARAVEL_STORAGE_LINK=true \
+    CADDY_LOG_LEVEL=WARN 
 
 RUN apk add --no-cache \
     supervisor \
