@@ -13,17 +13,6 @@
 }
 
 :80 {
-	log {
-		format filter {
-			wrap json
-			fields {
-				uri query {
-					replace authorization REDACTED
-					replace api_key REDACTED
-				}
-			}
-		}
-	}
 
 	route {
 		root * "{$APP_PUBLIC_PATH}"
