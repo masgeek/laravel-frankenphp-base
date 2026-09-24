@@ -1,0 +1,17 @@
+name: "laravel-frankenphp-base"
+
+services:
+  app:
+    image: ghcr.io/masgeek/laravel-frankenphp/base:${PHP_VERSION:-8.4}  
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PHP_VERSION: ${PHP_VERSION:-8.4}
+    container_name: laravel-frankenphp-base
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - LARAVEL_STORAGE_LINK=true
+      - CADDY_LOG_LEVEL=WARN
