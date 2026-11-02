@@ -50,7 +50,7 @@ jobs:
             type=raw,value=php${{ inputs.php_version || '8.4' }}
 
       - name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: Dockerfile
